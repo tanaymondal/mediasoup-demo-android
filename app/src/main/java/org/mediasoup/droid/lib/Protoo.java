@@ -1,5 +1,7 @@
 package org.mediasoup.droid.lib;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
@@ -34,6 +36,7 @@ public class Protoo extends org.protoojs.droid.Peer {
   }
 
   private Observable<String> request(String method, @NonNull JSONObject data) {
+    Log.e("TANAY", "Request Method: " + method);
     Logger.d(TAG, "request(), method: " + method);
     return Observable.create(
         emitter ->

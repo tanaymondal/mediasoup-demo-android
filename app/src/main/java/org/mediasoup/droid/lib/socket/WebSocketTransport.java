@@ -2,6 +2,7 @@ package org.mediasoup.droid.lib.socket;
 
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.util.Log;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -100,6 +101,7 @@ public class WebSocketTransport extends AbsWebSocketTransport {
   }
 
   private void newWebSocket() {
+    Logger.d("TANAY", "Socket URL: " + mUrl);
     mWebSocket = null;
     mOkHttpClient.newWebSocket(
         new Request.Builder().url(mUrl).addHeader("Sec-WebSocket-Protocol", "protoo").build(),
@@ -234,6 +236,7 @@ public class WebSocketTransport extends AbsWebSocketTransport {
 
     @Override
     public void onMessage(@NotNull WebSocket webSocket, @NotNull String text) {
+      Log.e("TANAY", "On Message: " + text);
       Logger.d(TAG, "onMessage()");
       if (mClosed) {
         return;

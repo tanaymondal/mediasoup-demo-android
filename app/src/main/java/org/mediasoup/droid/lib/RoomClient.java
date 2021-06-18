@@ -905,9 +905,7 @@ public class RoomClient extends RoomMessageHandler {
     String dtlsParameters = info.optString("dtlsParameters");
     String sctpParameters = info.optString("sctpParameters");
 
-    mSendTransport =
-        mMediasoupDevice.createSendTransport(
-            sendTransportListener, id, iceParameters, iceCandidates, dtlsParameters);
+    mSendTransport = mMediasoupDevice.createSendTransport(sendTransportListener, id, iceParameters, iceCandidates, dtlsParameters);
   }
 
   @WorkerThread
